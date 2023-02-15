@@ -56,6 +56,18 @@ If you built the examples or library using the native bcm2835 I2C-Driver, you ne
 Hence, `sudo examples/<exampleame>` for one of the examples listed below, or without `sudo` when using the standard Linux driver.
 
 # Examples
+## rawrgb gstreamer
+
+```
+make examples/rawrgb
+sudo ./rawrgb | gst-launch-1.0 fdsrc blocksize=2304 ! udpsink host=enter-host-ip port=5000
+```
+
+On the recieving end, run:
+```
+gst-launch-1.0 udpsrc blocksize=2304 port=5000 ! rawvideoparse use-sink-caps=false width=32 height=24 format=rgb framerate=16/1 ! videoconvert ! videoscale ! video/x-raw,width=640,height=480 ! autovideosink
+```
+
 ## fbuf
 
 ```
