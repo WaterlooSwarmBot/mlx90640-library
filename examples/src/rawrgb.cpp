@@ -94,7 +94,7 @@ void put_pixel_false_colour(char *image, int x, int y, double v) {
     int idx1, idx2;
     float fractBetween = 0;
     float vmin = 5.0;
-    float vmax = 50.0;
+    float vmax = 85.0;
     float vrange = vmax-vmin;
     int offset = (y*32+x) * PIXEL_SIZE_BYTES;
 
